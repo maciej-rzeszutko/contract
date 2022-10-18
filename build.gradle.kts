@@ -16,9 +16,8 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
-
-extra["springCloudVersion"] = "2021.0.4"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -33,8 +32,10 @@ dependencies {
 }
 
 dependencyManagement {
+    val BOM_VERSION: String by project
+
     imports {
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+        mavenBom("org.springframework.cloud:spring-cloud-dependencies:$BOM_VERSION")
     }
 }
 
