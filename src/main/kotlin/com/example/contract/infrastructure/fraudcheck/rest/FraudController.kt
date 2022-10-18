@@ -14,7 +14,7 @@ class FraudController {
         consumes = [APPLICATION_JSON_VALUE],
         produces = [APPLICATION_JSON_VALUE]
     )
-    fun check(@RequestBody loanRequest: LoanRequest): String = if (loanRequest.loanAmount > 10000) {
+    fun check(@RequestBody loanRequest: LoanRequest) = if (loanRequest.loanAmount > 10000) {
         "{fraudCheckStatus: FRAUD, rejection.reason: Amount too high}"
     } else {
         "{fraudCheckStatus: OK, acceptance.reason: Amount OK}"

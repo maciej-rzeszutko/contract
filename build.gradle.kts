@@ -1,6 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.cloud.contract.verifier.config.TestFramework.JUNIT5
-import org.springframework.cloud.contract.verifier.config.TestMode.MOCKMVC
+import org.springframework.cloud.contract.verifier.config.TestMode.EXPLICIT
 
 plugins {
     id("org.springframework.boot") version "2.7.4"
@@ -26,9 +26,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.cloud:spring-cloud-starter-contract-verifier")
 
-    contractTestImplementation("org.springframework.boot:spring-boot-starter-test")
+    contractTestImplementation("org.springframework.cloud:spring-cloud-starter-contract-verifier")
 }
 
 dependencyManagement {
@@ -63,6 +62,6 @@ tasks.withType<Test> {
 contracts {
     setBaseClassForTests("com.example.contract")
     setTestFramework(JUNIT5)
-    setTestMode(MOCKMVC)
+    setTestMode(EXPLICIT)
     setBaseClassForTests("com.example.contract.BaseTestClass")
 }
