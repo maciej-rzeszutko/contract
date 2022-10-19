@@ -60,8 +60,7 @@ tasks.withType<Test> {
 }
 
 contracts {
-    setBaseClassForTests("com.example.contract")
     setTestFramework(JUNIT5)
     setTestMode(EXPLICIT)
-    setBaseClassForTests("com.example.contract.BaseTestClass")
+    setPackageWithBaseClasses("com.example.contract")
 }

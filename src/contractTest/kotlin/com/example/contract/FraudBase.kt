@@ -9,7 +9,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-open class BaseTestClass {
+open class FraudBase {
 
     @LocalServerPort
     private var serverPort: Int = 0
